@@ -31,16 +31,14 @@ jobs:
           docker build -t openairegadm.azurecr.io/quickstart:v1 ./app
           docker push openairegadm.azurecr.io/quickstart:v1
 
-      - name: Set OpenAI API Key
-        run: |
-          echo "export OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" >> $GITHUB_ENV
-
       - name: Deploy to Azure Container Instance
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
           az container create \
           --resource-group openai_quickstart \
           --name quickstart \
-          --image openairegadm.azurecr.io/quickstart \
+          --image openairegadm.azurecr.io/quickstart:v1 \
           --registry-login-server openairegadm.azurecr.io \
           --registry-username ${{ secrets.SP_USERNAME }} \
           --registry-password ${{ secrets.SP_PASSWORD }} \
