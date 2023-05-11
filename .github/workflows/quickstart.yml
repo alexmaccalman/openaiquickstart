@@ -33,4 +33,14 @@ jobs:
 
       - name: Deploy to Azure Container Instance
         run: |
-          az container create --resource-group openai_quickstart --name quickstart --image openairegadm.azurecr.io/quickstart --registry-login-server openairegadm.azurecr.io --registry-username ${{ secrets.SP_USERNAME }} --registry-password ${{ secrets.SP_PASSWORD }} --dns-name-label alexmaccalmanopenaiquickstart --ports 5000
+          az container create \
+          --resource-group openai_quickstart \
+          --name quickstart \
+          --image openairegadm.azurecr.io/quickstart \
+          --registry-login-server openairegadm.azurecr.io \
+          --registry-username ${{ secrets.SP_USERNAME }} \
+          --registry-password ${{ secrets.SP_PASSWORD }} \
+          --dns-name-label alexmaccalmanopenaiquickstart \
+          --ports 5000 \
+          --memory 1
+
