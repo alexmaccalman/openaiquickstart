@@ -28,8 +28,8 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build -t openairegadm.azurecr.io/quickstart ./app
-          docker push openairegadm.azurecr.io/quickstart
+          docker build -t openairegadm.azurecr.io/quickstart:v1 ./app
+          docker push openairegadm.azurecr.io/quickstart:v1
 
       - name: Set OpenAI API Key
         run: |
