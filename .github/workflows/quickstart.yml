@@ -28,7 +28,7 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build -t openairegadm.azurecr.io/quickstart .
+          docker build -t openairegadm.azurecr.io/quickstart ./app
           docker push openairegadm.azurecr.io/quickstart
 
       - name: Deploy to Azure Container Instance
