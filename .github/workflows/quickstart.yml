@@ -28,8 +28,12 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build -t openairegadm.azurecr.io/quickstart:v1 ./app
-          docker push openairegadm.azurecr.io/quickstart:v1
+          docker build -t openairegadm.azurecr.io/quickstart ./app
+          docker push openairegadm.azurecr.io/quickstart
+
+      - name: Set OpenAI API Key
+        run: |
+          echo "export OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" >> $GITHUB_ENV
 
       - name: Deploy to Azure Container Instance
         run: |
@@ -43,5 +47,3 @@ jobs:
           --dns-name-label alexmaccalmanopenaiquickstart \
           --ports 5000 \
           --memory 1
-
-         
