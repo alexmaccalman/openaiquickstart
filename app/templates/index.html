@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <head>
-  <title>OpenAI Quickstart</title>
-  <link
-    rel="shortcut icon"
-    href="{{ url_for('static', filename='dog.png') }}"
-  />
+  <title>OpenAI Playground</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
 </head>
 
 <body>
-  <img src="{{ url_for('static', filename='dog.png') }}" class="icon" />
-  <h3>Name my animal</h3>
+  <h1>Alex MacCalman's OpenAI Playground</h1>
+  <h3>Generate Superhero Animal Names</h3>
   <form action="/" method="post">
     <input type="text" name="animal" placeholder="Enter an animal" required />
     <input type="submit" value="Generate names" />
   </form>
-  {% if result %}
-  <div class="result">{{ result }}</div>
+  {% if animal_result %}
+  <div class="result">{{ animal_result }}</div>
   {% endif %}
+
+  <h3>Translate to Spanish</h3>
+  <form action="/translate" method="post">
+    <input type="text" name="text" placeholder="Enter text to translate" required />
+    <input type="submit" value="Translate" />
+  </form>
+  {% if translation_result %}
+  <div class="result">{{ translation_result }}</div>
+  {% endif %}
+
+  <h3>Tell Me a Joke about a Topic</h3>
+  <form action="/joke" method="post">
+    <input type="text" name="joke" placeholder="Enter topic for joke" required />
+    <input type="submit" value="Generate Joke" />
+  </form>
+  {% if joke_result %}
+  <div class="result">{{ joke_result }}</div>
+  {% endif %}
+
 </body>
