@@ -1,14 +1,19 @@
-# Superhero Animal Names Generator
+# OpenAI Playground
 
-The Superhero Animal Names Generator is a web application that suggests superhero names for different animals. It uses OpenAI's text-based language model to generate creative and fun names for animals based on their species.
+This is a Flask web application that utilizes the OpenAI API for various functionalities. It provides the following features:
+
+- **Joke Generator**: Generates jokes based on a given topic.
+- **Self-Help Generator**: Provides suggestions on how to improve an area of life.
+- **Translation Service**: Translates text to Spanish.
+- **Superhero Animal Name Generator**: Generates superhero animal names based on a given animal.
 
 ## How It Works
 
-1. The user selects an animal from the provided list.
-2. The application sends a request to the server with the selected animal.
-3. The server uses OpenAI's Completion API to generate three superhero names for the selected animal.
-4. The server responds with the generated names.
-5. The web page displays the suggested names for the user to see and enjoy.
+1. The user enters information inside the fields.
+2. The application sends a request to the server with the entered prompt.
+3. The server uses OpenAI's Completion API to generate an answer.
+4. The server responds with the generated answer.
+5. The web page displays the answer for the user to see and enjoy.
 
 ## Technologies Used
 
@@ -44,10 +49,4 @@ To deploy the application to Azure Container Instance, follow these steps:
 3. Update the `<your-registry-info>` placeholders in the `azure-deploy.sh` script with your container registry information.
 4. Run the deployment script: `./azure-deploy.sh`
 
-## Contributing
 
-Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
