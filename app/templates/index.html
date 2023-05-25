@@ -5,32 +5,49 @@
 </head>
 
 <body>
-  <h1>Alex MacCalman's OpenAI Playground</h1>
-  <h3>Generate Superhero Animal Names</h3>
-  <form action="/" method="post">
-    <input type="text" name="animal" placeholder="Enter an animal" required />
-    <input type="submit" value="Generate names" />
-  </form>
-  {% if animal_result %}
-  <div class="result">{{ animal_result }}</div>
-  {% endif %}
+  <div class="container">
+    <div class="image-container">
+      <img src="{{ url_for('static', filename='pic.png') }}" alt="Image">
+    </div>
+    <div class="content-container">
+      <h1>Alex MacCalman's OpenAI Playground</h1>
+      
+      <h3>Tell Me a Joke about a Topic</h3>
+      <form action="/joke" method="post">
+        <input type="text" name="joke" placeholder="Enter topic for joke" required />
+        <input type="submit" value="Generate Joke" />
+      </form>
+      {% if joke_result %}
+      <div class="result">{{ joke_result }}</div>
+      {% endif %}
 
-  <h3>Translate to Spanish</h3>
-  <form action="/translate" method="post">
-    <input type="text" name="text" placeholder="Enter text to translate" required />
-    <input type="submit" value="Translate" />
-  </form>
-  {% if translation_result %}
-  <div class="result">{{ translation_result }}</div>
-  {% endif %}
+      <h3>Tell Me How to Improve an Area of my Life</h3>
+      <form action="/improve" method="post">
+        <input type="text" name="improve" placeholder="Enter an area of life to improve" required />
+        <input type="submit" value="Generate Self-Help" />
+      </form>
+      {% if improve_result %}
+      <div class="result">{{ improve_result }}</div>
+      {% endif %}
 
-  <h3>Tell Me a Joke about a Topic</h3>
-  <form action="/joke" method="post">
-    <input type="text" name="joke" placeholder="Enter topic for joke" required />
-    <input type="submit" value="Generate Joke" />
-  </form>
-  {% if joke_result %}
-  <div class="result">{{ joke_result }}</div>
-  {% endif %}
+      <h3>Translate to Spanish</h3>
+      <form action="/translate" method="post">
+        <input type="text" name="text" placeholder="Enter text to translate" required />
+        <input type="submit" value="Translate" />
+      </form>
+      {% if translation_result %}
+      <div class="result">{{ translation_result }}</div>
+      {% endif %}
 
+      <h3>Generate Superhero Animal Names</h3>
+      <form action="/" method="post">
+        <input type="text" name="animal" placeholder="Enter an animal" required />
+        <input type="submit" value="Generate names" />
+      </form>
+      {% if animal_result %}
+      <div class="result">{{ animal_result }}</div>
+      {% endif %}
+    </div>
+  </div>
 </body>
+
